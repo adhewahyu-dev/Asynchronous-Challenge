@@ -1,28 +1,12 @@
-// for (let i = 1; i <= 3; i++) {
-//     setTimeout(() => {
-        
-//     }, 3000);
-// }
-  
-// console.log('Done')
-
-async function test() {
-    let arr = []
-    for (let i = 1; i <= 3; i++) {
-        await sleep(() => {
-            console.log(`${i}`)
-        });
-    }
-    console.log("Done!");
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
+  const a = () => {
+      return new Promise (resolve => {
+          setTimeout(() => {
+              resolve()
+          }, 1000);
+      })
+  }
+  await a();
 }
-
-const sleep = async (cc, ...args) => {
-    timeout(1000);
-    return cc(...args);
-}
-
-const timeout = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-test();
+console.log('Done')
